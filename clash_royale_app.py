@@ -1,4 +1,5 @@
 import streamlit as st
 
-st.header('Welcome to your Clash Royale Stats')
-st.write('Hello')
+st.title('Welcome to your Clash Royale Stats')
+st.header('Your Clash Wins')
+st.header('Your Clash Losses')
