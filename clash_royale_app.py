@@ -16,5 +16,11 @@ def get_battlelog():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * FROM BATTLELOG_FLAT")
     return my_cur.fetchall()
+  
+if streamlit.button('Get Battlelog List'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_rows = get_battlelog()
+  my_cnx.close()
+  streamlit.dataframe(my_data_rows)
 
 
