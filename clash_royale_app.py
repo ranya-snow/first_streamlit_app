@@ -17,10 +17,10 @@ def get_battlelog():
     my_cur.execute("SELECT * FROM BATTLELOG_FLAT")
     return my_cur.fetchall()
   
-if streamlit.button('Get Battlelog List'):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+if st.button('Get Battlelog List'):
+  my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
   my_data_rows = get_battlelog()
   my_cnx.close()
-  streamlit.dataframe(my_data_rows)
+  st.dataframe(my_data_rows)
 
 
