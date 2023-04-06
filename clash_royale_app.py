@@ -4,13 +4,13 @@ import requests
 import snowflake.connector
 
 
-st.title('Welcome to your Clash Royale Stats')
+streamlit.title('Welcome to your Clash Royale Stats')
 
-st.header('👍 Your Clash Wins 👍')
+streamlit.header('👍 Your Clash Wins 👍')
 
-st.header('👎 Your Clash Losses 👎')
+streamlit.header('👎 Your Clash Losses 👎')
 
-st.header('🏆 Total Trophies Since April 1st, 2023 🏆')
+streamlit.header('🏆 Total Trophies Since April 1st, 2023 🏆')
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
