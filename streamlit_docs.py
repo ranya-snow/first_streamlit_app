@@ -1,15 +1,15 @@
 # streamlit_app.py
 
-import streamlit as st
+import streamlit
 import snowflake.connector
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
-@st.cache_resource
-def init_connection():
-    return snowflake.connector.connect(
-        **st.secrets["snowflake"], client_session_keep_alive=True
-    )
+# @st.cache_resource
+# def init_connection():
+#     return snowflake.connector.connect(
+#         **st.secrets["snowflake"], client_session_keep_alive=True
+#     )
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
