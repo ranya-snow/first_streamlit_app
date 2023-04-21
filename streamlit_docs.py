@@ -36,7 +36,7 @@ le = LabelEncoder()
 y = le.fit_transform(data['Class'])
 
 st.write(y)
-st.stop()
+#st.stop()
 
 # Split the dataset into features and target variable
 X = data.drop('Class', axis=1)
@@ -60,6 +60,7 @@ y_pred = le.inverse_transform(y_pred)
 accuracy = accuracy_score(data.loc[y_test.index, 'Class'], y_pred)
 
 st.write("Accuracy:", accuracy)
+st.write(y_pred)
 
 # X, y = data.data, data.target
 # st.write(data)
