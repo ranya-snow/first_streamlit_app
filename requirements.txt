@@ -1,4 +1,4 @@
 #requirements.txt
 snowflake-connector-python
 streamlit-echarts
-sklearn
+scikit-learn
