@@ -26,18 +26,46 @@ data = {'Animal': ['Dog', 'Cat', 'Horse', 'Bat', 'Cow', 'Eagle', 'Penguin', 'Cro
         'Type of reproduction': ['Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous'],
         'Class': ['Mammal', 'Mammal', 'Mammal', 'Mammal', 'Mammal', 'Bird', 'Bird', 'Reptile', 'Reptile', 'Reptile', 'Fish', 'Fish']}
 
-#df = pd.DataFrame(data)
+X = data.drop('Class', axis=1)
+y = data['Class']
 
-X, y = data.data, data.target
-st.write(data)
-
-# Split data into training and testing sets
+# Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Define and fit the decision tree classifier model
-model = DecisionTreeClassifier()
-model.fit(X_train, y_train)
+# Create a decision tree classifier with a maximum depth of 3
+clf = DecisionTreeClassifier(max_depth=3)
 
-# Evaluate the model on the testing set
-accuracy = model.score(X_test, y_test)
-st.write(f"Accuracy: {accuracy}")
+# Train the classifier on the training set
+clf.fit(X_train, y_train)
+
+# Use the trained classifier to predict the class labels of the test set
+y_pred = clf.predict(X_test)
+
+# Compute the accuracy of the classifier
+accuracy = accuracy_score(y_test, y_pred)
+
+st.write("Accuracy:", accuracy)
+
+
+
+
+
+
+
+
+
+# #df = pd.DataFrame(data)
+
+# X, y = data.data, data.target
+# st.write(data)
+
+# # Split data into training and testing sets
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# # Define and fit the decision tree classifier model
+# model = DecisionTreeClassifier()
+# model.fit(X_train, y_train)
+
+# # Evaluate the model on the testing set
+# accuracy = model.score(X_test, y_test)
+# st.write(f"Accuracy: {accuracy}")
