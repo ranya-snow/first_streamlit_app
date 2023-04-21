@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
 
 #Page configuration
 st.set_page_config(
@@ -14,5 +15,6 @@ st.set_page_config(
 st.title('Simple Prediction App')
 
 #Load dataset
-df = pd.read_csv('raw.github.com/dataprofessor/data.master/iris.csv')
+data = load_iris()
+df = to_pandas(load_iris)
 st.write(df)
