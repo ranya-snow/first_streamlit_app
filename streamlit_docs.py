@@ -21,16 +21,19 @@ st.header("Iris Classification")
 
 # Load dataset
 # data = load_iris()
-animal_data = {'Animal': ['Dog', 'Cat', 'Horse', 'Bat', 'Cow', 'Eagle', 'Penguin', 'Crocodile', 'Snake', 'Lizard', 'Fish', 'Shark'],
-        'Body temperature': ['Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded'],
-        'Skin type': ['Fur', 'Fur', 'Hair', 'Fur', 'Hair', 'Feathers', 'Feathers', 'Scales', 'Scales', 'Scales', 'Scales', 'Scales'],
-        'Habitat': ['Land', 'Land', 'Land', 'Air', 'Land', 'Air', 'Water', 'Water', 'Land', 'Land', 'Water', 'Water'],
-        'Type of reproduction': ['Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous'],
-        'Class': ['Mammal', 'Mammal', 'Mammal', 'Mammal', 'Mammal', 'Bird', 'Bird', 'Reptile', 'Reptile', 'Reptile', 'Fish', 'Fish']}
+animal_data = {
+    "Animal": ["Human", "Kangaroo", "Tuna", "Python", "Eagle", "Penguin", "Elephant", "Chameleon", "Goldfish", "Ostrich", "Lion", "Tortoise", "Shark", "Crocodile", "Sparrow"],
+    "Body Covering": ["Hair", "Hair", "Scales", "Scales", "Feathers", "Feathers", "Hair", "Scales", "Scales", "Feathers", "Hair", "Scales", "Scales", "Scales", "Feathers"],
+    "Warm-blooded": ["Yes", "Yes", "No", "Yes", "Yes", "Yes", "Yes", "Yes", "No", "Yes", "Yes", "No", "No", "Yes", "Yes"],
+    "Feathers": ["No", "No", "No", "No", "Yes", "Yes", "No", "No", "No", "Yes", "No", "No", "No", "No", "Yes"],
+    "Lays Eggs": ["No", "Yes", "Yes", "Yes", "Yes", "Yes", "No", "Yes", "Yes", "Yes", "No", "Yes", "Yes", "Yes", "Yes"],
+    "Can Fly": ["No", "No", "No", "No", "Yes", "No", "No", "No", "No", "No", "No", "No", "No", "No", "Yes"],
+    "Class": ["Mammal", "Mammal", "Fish", "Reptile", "Bird", "Bird", "Mammal", "Reptile", "Fish", "Bird", "Mammal", "Reptile", "Fish", "Reptile", "Bird"]
+}
 
 data = pd.DataFrame(animal_data)
 
-le = LabelEncoder()
+le = preprocessing.LabelEncoder()
 y = le.fit_transform(data['Class'])
 
 # Split the dataset into features and target variable
