@@ -44,11 +44,13 @@ X = data.drop('Class', axis=1)
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create a decision tree classifier with a maximum depth of 3
-clf = DecisionTreeClassifier(max_depth=3)
+#Model building
+rf = RandomForestClassifier(max_depth = 2, max_features = 4, n_estimators = 200, random_state = 42)
+rf.fit(X_train, y_train)
 
-# Train the classifier on the training set
-clf.fit(X_train, y_train)
+#Apply model to make predictions
+y_pred = rf.predict([[sepal_length, sepal_width, petal_length, petal_width]])
+
 
 # Use the trained classifier to predict the class labels of the test set
 y_pred = clf.predict(X_test)
