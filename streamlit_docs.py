@@ -16,11 +16,10 @@ st.write("I'm ", age, 'years old')
 
 st_name = st.sidebar.text_input('What is your name?', 'Ranya')
 st.write(f"Hello {st_name}!")
-
-st.header("Iris Classification")
+    
+st.header("Animal Family Classification")
 
 # Load dataset
-# data = load_iris()
 animal_data = {
     "Animal": ["Human", "Kangaroo", "Tuna", "Python", "Eagle", "Penguin", "Elephant", "Chameleon", "Goldfish", "Ostrich", "Lion", "Tortoise", "Shark", "Crocodile", "Sparrow"],
     "Body Covering": ["Hair", "Hair", "Scales", "Scales", "Feathers", "Feathers", "Hair", "Scales", "Scales", "Feathers", "Hair", "Scales", "Scales", "Scales", "Feathers"],
@@ -33,8 +32,11 @@ animal_data = {
 
 data = pd.DataFrame(animal_data)
 
-le = preprocessing.LabelEncoder()
+le = LabelEncoder()
 y = le.fit_transform(data['Class'])
+
+st.write(y)
+st.stop()
 
 # Split the dataset into features and target variable
 X = data.drop('Class', axis=1)
