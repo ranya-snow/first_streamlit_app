@@ -1,5 +1,7 @@
 # streamlit_app.py
 import streamlit as st
+import scikit-learn as sklearn
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
