@@ -19,12 +19,14 @@ st.header("Iris Classification")
 
 # Load dataset
 # data = load_iris()
-data = {'Animal': ['Dog', 'Cat', 'Horse', 'Bat', 'Cow', 'Eagle', 'Penguin', 'Crocodile', 'Snake', 'Lizard', 'Fish', 'Shark'],
+animal_data = {'Animal': ['Dog', 'Cat', 'Horse', 'Bat', 'Cow', 'Eagle', 'Penguin', 'Crocodile', 'Snake', 'Lizard', 'Fish', 'Shark'],
         'Body temperature': ['Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Warm-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded', 'Cold-blooded'],
         'Skin type': ['Fur', 'Fur', 'Hair', 'Fur', 'Hair', 'Feathers', 'Feathers', 'Scales', 'Scales', 'Scales', 'Scales', 'Scales'],
         'Habitat': ['Land', 'Land', 'Land', 'Air', 'Land', 'Air', 'Water', 'Water', 'Land', 'Land', 'Water', 'Water'],
         'Type of reproduction': ['Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Viviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous', 'Oviparous'],
         'Class': ['Mammal', 'Mammal', 'Mammal', 'Mammal', 'Mammal', 'Bird', 'Bird', 'Reptile', 'Reptile', 'Reptile', 'Fish', 'Fish']}
+
+data = pd.DataFrame(animal_data)
 
 X = data.drop('Class', axis=1)
 y = data['Class']
@@ -45,16 +47,6 @@ y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 
 st.write("Accuracy:", accuracy)
-
-
-
-
-
-
-
-
-
-# #df = pd.DataFrame(data)
 
 # X, y = data.data, data.target
 # st.write(data)
