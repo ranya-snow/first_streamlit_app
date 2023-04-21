@@ -1,6 +1,6 @@
 # streamlit_app.py
 import streamlit as st
-import scikit-learn as sklearn
+import sklearn
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import load_iris
