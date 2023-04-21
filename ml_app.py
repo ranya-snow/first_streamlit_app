@@ -14,5 +14,5 @@ st.set_page_config(
 st.title('Simple Prediction App')
 
 #Load dataset
-df = pd.read_csv('https://raw.github.com/dataprofessor/data.master/iris.csv')
+df = pd.read_csv('raw.github.com/dataprofessor/data.master/iris.csv')
 st.write(df)
