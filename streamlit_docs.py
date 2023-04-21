@@ -30,4 +30,4 @@ model.fit(X_train, y_train)
 
 # Evaluate the model on the testing set
 accuracy = model.score(X_test, y_test)
-print(f"Accuracy: {accuracy}")
+st.write(f"Accuracy: {accuracy}")
