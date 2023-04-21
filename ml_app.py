@@ -16,5 +16,5 @@ st.title('Simple Prediction App')
 
 #Load dataset
 data = load_iris()
-df = pd.DataFrame(date)
+df = pd.DataFrame(data)
 st.write(df)
