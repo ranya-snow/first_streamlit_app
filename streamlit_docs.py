@@ -6,6 +6,8 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import LabelEncoder
+
 
 st.title("I'm doing this.")
 
@@ -28,8 +30,11 @@ animal_data = {'Animal': ['Dog', 'Cat', 'Horse', 'Bat', 'Cow', 'Eagle', 'Penguin
 
 data = pd.DataFrame(animal_data)
 
+le = LabelEncoder()
+y = le.fit_transform(data['Class'])
+
+# Split the dataset into features and target variable
 X = data.drop('Class', axis=1)
-y = data['Class']
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -43,8 +48,11 @@ clf.fit(X_train, y_train)
 # Use the trained classifier to predict the class labels of the test set
 y_pred = clf.predict(X_test)
 
+# Decode the predicted integer labels back to their original string values
+y_pred = le.inverse_transform(y_pred)
+
 # Compute the accuracy of the classifier
-accuracy = accuracy_score(y_test, y_pred)
+accuracy = accuracy_score(data.loc[y_test.index, 'Class'], y_pred)
 
 st.write("Accuracy:", accuracy)
 
