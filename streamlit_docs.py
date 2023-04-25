@@ -49,7 +49,7 @@ can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 # Encode the categorical target variable as integer labels
 le = LabelEncoder()
 y = le.fit_transform(data['Class'])
-X = le.fit_transform(data.drop(columns='Class', 'Animal'])
+X = le.fit_transform(data.drop(columns=['Class', 'Animal'])
 
 st.write(y)
 st.write(X)
