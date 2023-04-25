@@ -49,8 +49,17 @@ can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 
 # Encode the categorical target variable as integer labels
 le = LabelEncoder()
+data['Warm-blooded'] = le.fit_transform(data['Warm-blooded'])
+data['Feathers'] = le.fit_transform(data['Feathers'])
+data['Lays Eggs'] = le.fit_transform(data['Lays Eggs'])
+data['Can Fly'] = le.fit_transform(data['Can Fly'])
+
+ohe = OneHotEncoder()
+ohe_df = pd.DataFrame(ohe.fit_transform(data[['Warm-blooded', 'Feathers', 'Lays Eggs', 'Can Fly']].toarray(), columns=ohe.get_feature_names(['Warm-blooded', 'Feathers', 'Lays Eggs', 'Can Fly' ]))
+df = pd.concat([df, ohe_df], axis=1)
+
 y = le.fit_transform(data['Class'])
-ct = ColumnTransformer([('one_hot_encoder', OneHotEncoder(categories='auto'), [0])], remainder='passthrough')
+ct = ColumnTransformer([('one_hot_encoder', ohe(categories='auto'), [0])], remainder='passthrough')
 X = ct.fit_transform(data.drop(columns=['Class', 'Animal']))
 
 st.write(y)
