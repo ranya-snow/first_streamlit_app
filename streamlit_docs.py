@@ -49,7 +49,8 @@ st.write(y)
 #st.stop()
 
 # Split the dataset into features and target variable
-X = data.drop(columns=['Class','Animal'])
+X_string = data.drop(columns=['Class','Animal'])
+X = le.fit_transform(X_string)
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
