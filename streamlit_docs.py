@@ -75,38 +75,38 @@ print("Accuracy:", accuracy)
 
 ####### END OF TRYING IVES ########
 st.stop()
-le = LabelEncoder()
-y = le.fit_transform(data['Class'])
+# le = LabelEncoder()
+# y = le.fit_transform(data['Class'])
 
-st.write(y)
-#st.stop()
+# st.write(y)
+# #st.stop()
 
-# Split the dataset into features and target variable
-X_string = data.drop(columns=['Class','Animal'])
-X = le.fit_transform(X_string)
+# # Split the dataset into features and target variable
+# X_string = data.drop(columns=['Class','Animal'])
+# X = le.fit_transform(X_string)
 
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# # Split the data into training and testing sets
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-#Model building
-rf = RandomForestClassifier(max_depth = 2, max_features = 4, n_estimators = 200, random_state = 42)
-rf.fit(X_train, y_train)
+# #Model building
+# rf = RandomForestClassifier(max_depth = 2, max_features = 4, n_estimators = 200, random_state = 42)
+# rf.fit(X_train, y_train)
 
-#Apply model to make predictions
-y_pred = rf.predict([[body_covering,warm_blooded,feathers,lays_eggs,can_fly]])
+# #Apply model to make predictions
+# y_pred = rf.predict([[body_covering,warm_blooded,feathers,lays_eggs,can_fly]])
 
 
-# Use the trained classifier to predict the class labels of the test set
-y_pred = clf.predict(X_test)
+# # Use the trained classifier to predict the class labels of the test set
+# y_pred = clf.predict(X_test)
 
-# Decode the predicted integer labels back to their original string values
-y_pred = le.inverse_transform(y_pred)
+# # Decode the predicted integer labels back to their original string values
+# y_pred = le.inverse_transform(y_pred)
 
-# Compute the accuracy of the classifier
-accuracy = accuracy_score(data.loc[y_test.index, 'Class'], y_pred)
+# # Compute the accuracy of the classifier
+# accuracy = accuracy_score(data.loc[y_test.index, 'Class'], y_pred)
 
-st.write("Accuracy:", accuracy)
-st.write(y_pred)
+# st.write("Accuracy:", accuracy)
+# st.write(y_pred)
 
 # X, y = data.data, data.target
 # st.write(data)
