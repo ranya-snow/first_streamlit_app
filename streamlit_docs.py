@@ -26,6 +26,7 @@ animal_data = {
 }
 
 data = pd.DataFrame(animal_data)
+st.dataframe(data)
 
 #Input widgets
 st.sidebar.subheader("Input features")
@@ -35,7 +36,7 @@ feathers = st.sidebar.selectbox("Does the animla have feathers?", ("Yes", "No"))
 lays_eggs = st.sidebar.selectbox("Does the animal lay eggs?", ("Yes", "No"))
 can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 
-##### TRYING IVES ########
+
 # Convert the dictionary to a Pandas dataframe
 data = pd.DataFrame(animal_data)
 
@@ -66,5 +67,3 @@ y_pred = le.inverse_transform(y_pred)
 accuracy = accuracy_score(data.loc[y_test.index, 'Class'], y_pred)
 
 print("Accuracy:", accuracy)
-
-####### END OF TRYING IVES ########
