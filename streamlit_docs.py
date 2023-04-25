@@ -12,13 +12,13 @@ from sklearn.compose import ColumnTransformer
 
 st.set_page_config(
     page_title="Animal Identification ML App",
-    page_icon="🧊",
+    page_icon="🦍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 st.title("Animal Identification ML App")
-    
+
 st.header("This is the data we are working with.")
 
 # Load dataset
@@ -34,7 +34,7 @@ animal_data = {
 
 data = pd.DataFrame(animal_data)
 st.write(data)
-st.stop()
+
 #Input widgets
 st.sidebar.subheader("Input features")
 body_covering = st.sidebar.selectbox("What covers the animal's body?", ("Feathers", "Hair", "Scales"))
@@ -43,6 +43,7 @@ feathers = st.sidebar.selectbox("Does the animla have feathers?", ("Yes", "No"))
 lays_eggs = st.sidebar.selectbox("Does the animal lay eggs?", ("Yes", "No"))
 can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 
+st.stop()
 
 # # Convert the dictionary to a Pandas dataframe
 # data = pd.DataFrame(animal_data)
