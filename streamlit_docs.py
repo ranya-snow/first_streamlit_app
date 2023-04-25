@@ -56,7 +56,7 @@ data['Can Fly'] = le.fit_transform(data['Can Fly'])
 
 ohe = OneHotEncoder()
 ohe_df = pd.DataFrame(ohe.fit_transform(data[['Warm-blooded', 'Feathers', 'Lays Eggs', 'Can Fly']].toarray(), columns=ohe.get_feature_names(['Warm-blooded', 'Feathers', 'Lays Eggs', 'Can Fly' ]))
-df = pd.concat([df, ohe_df], axis=1)
+data = pd.concat([df, ohe_df], axis=1)
 
 y = le.fit_transform(data['Class'])
 ct = ColumnTransformer([('one_hot_encoder', ohe(categories='auto'), [0])], remainder='passthrough')
