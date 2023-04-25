@@ -26,7 +26,7 @@ animal_data = {
 }
 
 data = pd.DataFrame(animal_data)
-st.dataframe(data)
+st.write(data)
 
 #Input widgets
 st.sidebar.subheader("Input features")
