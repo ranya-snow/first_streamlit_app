@@ -14,6 +14,13 @@ st.title("Animal Identification ML App")
     
 st.header("This is the data we are working with.")
 
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 # Load dataset
 animal_data = {
     "Animal": ["Human", "Kangaroo", "Tuna", "Python", "Eagle", "Penguin", "Elephant", "Chameleon", "Goldfish", "Ostrich", "Lion", "Tortoise", "Shark", "Crocodile", "Sparrow"],
