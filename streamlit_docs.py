@@ -10,9 +10,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.compose import ColumnTransformer
 
-st.title("I'm doing this.")
+st.title("Animal Identification ML App")
     
-st.header("Animal Family Classification")
+st.header("This is the data we are working with.")
 
 # Load dataset
 animal_data = {
