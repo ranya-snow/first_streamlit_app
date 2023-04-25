@@ -27,7 +27,7 @@ animal_data = {
 
 data = pd.DataFrame(animal_data)
 st.write(data)
-
+st.stop()
 #Input widgets
 st.sidebar.subheader("Input features")
 body_covering = st.sidebar.selectbox("What covers the animal's body?", ("Feathers", "Hair", "Scales"))
