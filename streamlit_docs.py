@@ -32,6 +32,15 @@ animal_data = {
 
 data = pd.DataFrame(animal_data)
 
+#Input widgets
+st.sidebar.subheader("Input features")
+body_covering = st.sidebar.selectbox("What covers the animal's body?", "Feathers", "Hair", "Scales")
+warm_blooded = st.sidebar.selectbox("Is the animal warm-blooded?", "Yes", "No")
+feathers = st.sidebar.selectbox("Does the animla have feathers?", "Yes", "No")
+lays_eggs = st.sidebar.selectbox("Does the animal lay eggs?", "Yes", "No")
+can_fly = st.sidebar.selectbox("Can the animal fly?", "Yes", "No")
+
+
 le = LabelEncoder()
 y = le.fit_transform(data['Class'])
 
@@ -39,7 +48,7 @@ st.write(y)
 #st.stop()
 
 # Split the dataset into features and target variable
-X = data.drop('Class', axis=1)
+X = data.drop(columns=['Class','Animal'])
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -49,7 +58,7 @@ rf = RandomForestClassifier(max_depth = 2, max_features = 4, n_estimators = 200,
 rf.fit(X_train, y_train)
 
 #Apply model to make predictions
-y_pred = rf.predict([[sepal_length, sepal_width, petal_length, petal_width]])
+y_pred = rf.predict([[body_covering,warm_blooded,feathers,lays_eggs,can_fly]])
 
 
 # Use the trained classifier to predict the class labels of the test set
