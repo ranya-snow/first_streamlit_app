@@ -90,7 +90,7 @@ st.stop()
 # X = le.fit_transform(X_string)
 
 # # Split the data into training and testing sets
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# X_train, X_test, y_train, y_test = train_test_split(X.values, y, test_size=0.2, random_state=42)
 
 # #Model building
 # rf = RandomForestClassifier(max_depth = 2, max_features = 4, n_estimators = 200, random_state = 42)
@@ -112,16 +112,3 @@ st.stop()
 # st.write("Accuracy:", accuracy)
 # st.write(y_pred)
 
-# X, y = data.data, data.target
-# st.write(data)
-
-# # Split data into training and testing sets
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# # Define and fit the decision tree classifier model
-# model = DecisionTreeClassifier()
-# model.fit(X_train, y_train)
-
-# # Evaluate the model on the testing set
-# accuracy = model.score(X_test, y_test)
-# st.write(f"Accuracy: {accuracy}")
