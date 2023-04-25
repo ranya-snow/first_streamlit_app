@@ -10,16 +10,16 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.compose import ColumnTransformer
 
-st.title("Animal Identification ML App")
-    
-st.header("This is the data we are working with.")
-
 st.set_page_config(
     page_title="Ex-stream-ly Cool App",
     page_icon="🧊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+st.title("Animal Identification ML App")
+    
+st.header("This is the data we are working with.")
 
 # Load dataset
 animal_data = {
