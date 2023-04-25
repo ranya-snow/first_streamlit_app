@@ -39,10 +39,6 @@ can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 # Convert the dictionary to a Pandas dataframe
 data = pd.DataFrame(animal_data)
 
-# Separate features and target variable
-X = df.iloc[:, :-1]
-y = df.iloc[:, -1]
-
 # Encode the categorical target variable as integer labels
 le = LabelEncoder()
 y = le.fit_transform(data['Class'])
@@ -50,9 +46,9 @@ y = le.fit_transform(data['Class'])
 # Encode the categorical input features as integer labels using OneHotEncoder
 ct = ColumnTransformer([('one_hot_encoder', OneHotEncoder(categories='auto'), [0])], remainder='passthrough')
 X = ct.fit_transform(data.drop(columns=['Class','Animal'])
-
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+                     
+#Data splitting
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
 # Create a random forest classifier with 100 trees and a maximum depth of 3
 clf = RandomForestClassifier(n_estimators=100, max_depth=3)
