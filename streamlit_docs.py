@@ -45,6 +45,10 @@ can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 # Convert the dictionary to a Pandas dataframe
 data = pd.DataFrame(animal_data)
 
+# Separate features and target variable
+X = df.iloc[:, :-1]
+y = df.iloc[:, -1]
+
 # Encode the categorical target variable as integer labels
 le = LabelEncoder()
 y = le.fit_transform(data['Class'])
