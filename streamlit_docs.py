@@ -34,11 +34,11 @@ data = pd.DataFrame(animal_data)
 
 #Input widgets
 st.sidebar.subheader("Input features")
-body_covering = st.sidebar.selectbox("What covers the animal's body?", "Feathers", "Hair", "Scales")
-warm_blooded = st.sidebar.selectbox("Is the animal warm-blooded?", "Yes", "No")
-feathers = st.sidebar.selectbox("Does the animla have feathers?", "Yes", "No")
-lays_eggs = st.sidebar.selectbox("Does the animal lay eggs?", "Yes", "No")
-can_fly = st.sidebar.selectbox("Can the animal fly?", "Yes", "No")
+body_covering = st.sidebar.selectbox("What covers the animal's body?", ("Feathers", "Hair", "Scales"))
+warm_blooded = st.sidebar.selectbox("Is the animal warm-blooded?", ("Yes", "No"))
+feathers = st.sidebar.selectbox("Does the animla have feathers?", ("Yes", "No"))
+lays_eggs = st.sidebar.selectbox("Does the animal lay eggs?", ("Yes", "No"))
+can_fly = st.sidebar.selectbox("Can the animal fly?", ("Yes", "No"))
 
 
 le = LabelEncoder()
