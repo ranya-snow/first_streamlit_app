@@ -13,9 +13,9 @@ cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Se
 
 if cloud == "Amazon Web Services":
   region = st.selectbox("What region would you like to deploy your Snowflake instance?", aws_regions)
-elif cloud = "Google Cloud Platform":
+elif cloud == "Google Cloud Platform":
   region = st.selectbox("What region would you like to deploy your Snowflake instance?", gcp_regions)
-elif cloud = "Microsoft Azure":
+elif cloud == "Microsoft Azure":
   region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
 
 st.divider()
