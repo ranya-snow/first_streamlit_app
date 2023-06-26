@@ -4,6 +4,12 @@ st.title("Welcome to estimating Snowflake consumption :snowflake:")
 
 st.header("EStimate hourly compute and WH size")
 
+edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake")
+cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
+
+if cloud = "Amazon Web Services":
+  region = st.selectbox("What region would youb like to deploy your Snowflake instance?", ("US West (Oregon) (us-west-2)", "US East (Ohio) (us-east-2)", "US East (N. Virginia) (us-east-1)", "Canada Central (Montreal) (ca-central-1)", "US Gov West 1 (us-gov-west-1)", "US East (Commercial Gov – N Virginia) (us-gov-east-1)", "EU (Ireland) (eu-west-1)", "Europe (London) (eu-west-2)", "EU (Paris) (eu-west-3)", "EU (Frankfurt) (eu-central-1)", "EU (Stockholm) (eu-north-1)", "Asia Pacific (Tokyo) (ap-northeast-1)", "Asia Pacific (Osaka) (ap-northeast-3)", "Asia Pacific (Seoul) (ap-northeast-2)", "AWS Pacific (Mumbai) (ap-south-1)", "Asia Pacific (Singapore) (ap-southeast-1)", "Asia Pacific (Sydney) (ap-southeast-2)", "Asia Pacific (Jakarta) (ap-southeast-3)", "South American (Sao Paulo) (sa-east-1)"))
+
 col1, col2, col3 = st.columns(3)
 with col1:
   st.subheader("Workload: Ingest")
