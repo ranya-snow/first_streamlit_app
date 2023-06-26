@@ -13,7 +13,7 @@ with col1:
 
 with col2:
   st.subheader("Workload: Transformations")
-  wh_transform = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"), key=transform)
+  wh_transform = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"), key="transform")
   wh_transform_hours = st.number_input("How many hours a day will the WH be running?", key=transform_h)
   wh_transform_days = st.number_input("How many days a week will the WH be running?", key=transform_d)
 
