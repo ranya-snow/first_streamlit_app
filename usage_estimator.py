@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Welcome to estimating Snowflake consumption :snowflake:")
+st.title("Welcome to estimating consumption :snowflake:")
 
 st.header("EStimate hourly compute and WH size")
 #variables
