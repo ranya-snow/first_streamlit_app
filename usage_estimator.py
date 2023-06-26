@@ -4,7 +4,7 @@ st.title("Welcome to estimating Snowflake consumption")
 
 st.header("EStimate hourly compute and WH size")
 
-col1, col2, col3 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
   st.subheader("Workload: Ingest")
   wh_ingest = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"))
