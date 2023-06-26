@@ -23,6 +23,7 @@ with col3:
   wh_internal_hours = st.number_input("How many hours a day will the WH be running?", key="internal_h", step=0.25)
   wh_internal_days = st.number_input("How many days a week will the WH be running?", key="internal_d", step=1)
 
+st.divider()
 col4, col5, col6 = st.columns(3)
 with col4:
   st.subheader("Workload: Ad-hoc Analysis")
