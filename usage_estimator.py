@@ -4,7 +4,7 @@ st.title("Welcome to estimating Snowflake consumption :snowflake:")
 
 st.header("EStimate hourly compute and WH size")
 
-edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake")
+edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake"))
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
 
 if cloud = "Amazon Web Services":
