@@ -21,7 +21,7 @@ with col3:
   st.subheader("Workload: Internal BI")
   wh_internal = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"), key="internal")
   wh_internal_hours = st.number_input("How many hours a day will the WH be running?", key="internal_h", step=0.25)
-  wh_internal_days = st.number_input("How many days a week will the WH be running?", key="internal_d", setp=1)
+  wh_internal_days = st.number_input("How many days a week will the WH be running?", key="internal_d", step=1)
 
 col4, col5, col6 = st.columns(3)
 with col4:
