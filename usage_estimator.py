@@ -212,6 +212,33 @@ credit_prices_azure = {
     }
 }
 
+credit_prices_gcp = {
+    "us-central1": {
+        "Standard": 2.0,
+        "Enterprise": 3.0,
+        "Business Critical": 4.0,
+        "Storage": 20.0
+    },
+    "us-east4": {
+        "Standard": 2.0,
+        "Enterprise": 3.0,
+        "Business Critical": 4.0,
+        "Storage": 23.0
+    },
+    "europe-west2": {
+        "Standard": 2.7,
+        "Enterprise": 4.0,
+        "Business Critical": 5.4,
+        "Storage": 23.0
+    },
+    "europe-west4": {
+        "Standard": 2.6,
+        "Enterprise": 3.9,
+        "Business Critical": 5.2,
+        "Storage": 20.0
+    }
+}
+
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
 
 if cloud == "Amazon Web Services":
@@ -232,21 +259,17 @@ elif cloud == "Microsoft Azure":
     else:
         st.error("Invalid selection")
 
+elif cloud == "Google Cloud Platform":
+    region = st.selectbox("Select a region", list(credit_prices_gcp.keys()))
+    plan = st.selectbox("Select a plan", list(credit_prices_gcp.get(region, {}).keys()))
+    value = credit_prices_gcp.get(region, {}).get(plan)
+    if value is not None:
+        st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
+    else:
+        st.error("Invalid selection")
+  
+
 st.stop()
-
-# elif cloud == "Google Cloud Platform":
-#   region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
-
-
-region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
-plan = st.selectbox("Select a plan", list(credit_prices_aws.get(region, {}).keys()))
-value = credit_prices_aws.get(region, {}).get(plan)
-if value is not None:
-    st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
-else:
-    st.error("Invalid selection")
-
-
 
 edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake"))
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
