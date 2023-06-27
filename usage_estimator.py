@@ -2,11 +2,130 @@ import streamlit as st
 
 st.title("Welcome to estimating consumption :snowflake:")
 
-st.header("EStimate hourly compute and WH size")
-#variables
+st.header("Estimate hourly compute and WH size")
+
+#cloud region variables
+
 aws_regions = ["US West (Oregon) (us-west-2)", "US East (Ohio) (us-east-2)", "US East (N. Virginia) (us-east-1)", "Canada Central (Montreal) (ca-central-1)", "US Gov West 1 (us-gov-west-1)", "US East (Commercial Gov – N Virginia) (us-gov-east-1)", "EU (Ireland) (eu-west-1)", "Europe (London) (eu-west-2)", "EU (Paris) (eu-west-3)", "EU (Frankfurt) (eu-central-1)", "EU (Stockholm) (eu-north-1)", "Asia Pacific (Tokyo) (ap-northeast-1)", "Asia Pacific (Osaka) (ap-northeast-3)", "Asia Pacific (Seoul) (ap-northeast-2)", "AWS Pacific (Mumbai) (ap-south-1)", "Asia Pacific (Singapore) (ap-southeast-1)", "Asia Pacific (Sydney) (ap-southeast-2)", "Asia Pacific (Jakarta) (ap-southeast-3)", "South American (Sao Paulo) (sa-east-1)"]
 azure_regions = ["West US 2 (Washington) (westus2)", "Central US (Iowa) (centralus)", "South Central US (Texas) (southcentralus)", "East US 2 (Virginia) (eastus2)", "Canada Central (Toronto) (canadacentral)", "US Gov (Virginia) (usgovvirginia)", "UK South (London) (uksouth)", "North Europe (Ireland) (northeurope)", "West Europe (Netherlands) (westeurope)", "Switzerland North (Zurich) (switzerlandnorth)", "UAE North (Dubai) (uaenorth)", "Central India (Pune) (centralindia)", "Japan East (Tokyo) (japaneast)", "Southeast Asia (Singapore) (southeastasia)", "Australia East (New South Wales) (australiaeast)"]
 gcp_regions = ["US Central 1 (Iowa) (us-central1)", "US East 4 (N. Virginia) (us-east4)", "Europe West 2 (London) (europe-west2)", "Europe West 4 (Netherlands) (europe-west4)"]
+
+#credit prices dictionary
+credit_prices = {
+    "US West (Oregon) (us-west-2)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "US East (Ohio) (us-east-2)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "US East (N. Virginia) (us-east-1)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "Canada Central (Montreal) (ca-central-1)": {
+        "Standard": 2.25,
+        "Enterprise": 3.50,
+        "Business Critical": 4.50,
+        "Storage": 23.00
+    },
+    "US Gov West 1 (us-gov-west-1)": {
+        "Storage": 39.00
+    },
+    "US East (Commercial Gov – N Virginia) (us-gov-east-1)": {
+        "Storage": 39.00
+    },
+    "EU (Ireland) (eu-west-1)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 23.00
+    },
+    "Europe (London) (eu-west-2)": {
+        "Standard": 2.70,
+        "Enterprise": 4.00,
+        "Business Critical": 5.40,
+        "Storage": 24.00
+    },
+    "EU (Paris) (eu-west-3)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 24.00
+    },
+    "EU (Frankfurt) (eu-central-1)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 24.50
+    },
+    "EU (Stockholm) (eu-north-1)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 23.00
+    },
+    "Asia Pacific (Tokyo) (ap-northeast-1)": {
+        "Standard": 2.85,
+        "Enterprise": 4.30,
+        "Business Critical": 5.70,
+        "Storage": 25.00
+    },
+    "Asia Pacific (Osaka) (ap-northeast-3)": {
+        "Standard": 2.85,
+        "Enterprise": 4.30,
+        "Business Critical": 5.70,
+        "Storage": 25.00
+    },
+    "Asia Pacific (Seoul) (ap-northeast-2)": {
+        "Standard": 2.75,
+        "Enterprise": 4.05,
+        "Business Critical": 5.50,
+        "Storage": 25.00
+    },
+    "AWS Pacific (Mumbai) (ap-south-1)": {
+        "Standard": 2.20,
+        "Enterprise": 3.30,
+        "Business Critical": 4.40,
+        "Storage": 25.00
+    },
+    "Asia Pacific (Singapore) (ap-southeast-1)": {
+        "Standard": 2.50,
+        "Enterprise": 3.70,
+        "Business Critical": 5.00,
+        "Storage": 25.00
+    },
+    "Asia Pacific (Sydney) (ap-southeast-2)": {
+        "Standard": 2.75,
+        "Enterprise": 4.05,
+        "Business Critical": 5.50,
+        "Storage": 25.00
+    },
+    "Asia Pacific (Jakarta) (ap-southeast-3)": {
+        "Standard": 2.50,
+        "Enterprise": 3.70,
+        "Business Critical": 5.00,
+        "Storage": 25.00
+    },
+    "South American (Sao Paulo) (sa-east-1)": {
+        "Standard": 3.10,
+        "Enterprise": 4.65,
+        "Business Critical": 6.20,
+        "Storage": 40.50
+    }
+}
+
+test_region = st.selectbox("Select a region", list(credit_prices.keys()))
+st.write(test_region)
+
+st.stop()
 
 edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake"))
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
@@ -18,6 +137,9 @@ elif cloud == "Google Cloud Platform":
 elif cloud == "Microsoft Azure":
   region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
 
+
+
+st.write(credit_price)
 st.divider()
 
 col1, col2, col3 = st.columns(3)
