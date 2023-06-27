@@ -311,12 +311,12 @@ with col4:
 with col5:
   st.subheader("Workload: Development work")
   wh_dev = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"), key="dev")
-  wh_dev_hours = st.number_input("How many hours a day will the WH be running?", key="dev_h", step=0.25, "6XL")
-  wh_dev_days = st.number_input("How many days a week will the WH be running?", key="dev_d", step=1, "6XL")
+  wh_dev_hours = st.number_input("How many hours a day will the WH be running?", key="dev_h", step=0.25)
+  wh_dev_days = st.number_input("How many days a week will the WH be running?", key="dev_d", step=1)
 
 with col6:
   st.subheader("Workload: Extermal BI")
-  wh_external = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"), key="external")
+  wh_external = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"), key="external")
   wh_external_hours = st.number_input("How many hours a day will the WH be running?", key="external_h", step=0.25)
   wh_external_days = st.number_input("How many days a week will the WH be running?", key="external_d", step=1)
 
