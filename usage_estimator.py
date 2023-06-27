@@ -124,10 +124,10 @@ credit_prices = {
 
 test_region = st.selectbox("Select a region", list(credit_prices.keys()))
 st.write(test_region)
-plan = st.selectbox("Select a plan", list(credit_prices.get(region, {}).keys()))
-value = dollar_values.get(region, {}).get(plan)
+plan = st.selectbox("Select a plan", list(credit_prices.get(test_region, {}).keys()))
+value = credit_prices.get(test_region, {}).get(plan)
 if value is not None:
-    st.success(f"The value for {region} - {plan} is ${value:.2f}")
+    st.success(f"The value for {test_region} - {plan} is ${value:.2f}")
 else:
     st.error("Invalid selection")
 
