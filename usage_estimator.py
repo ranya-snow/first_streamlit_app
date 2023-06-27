@@ -267,23 +267,7 @@ elif cloud == "Google Cloud Platform":
         st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
     else:
         st.error("Invalid selection")
-  
 
-st.stop()
-
-edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake"))
-cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
-
-if cloud == "Amazon Web Services":
-  region = st.selectbox("What region would you like to deploy your Snowflake instance?", aws_regions)
-elif cloud == "Google Cloud Platform":
-  region = st.selectbox("What region would you like to deploy your Snowflake instance?", gcp_regions)
-elif cloud == "Microsoft Azure":
-  region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
-
-
-
-st.write(credit_price)
 st.divider()
 
 col1, col2, col3 = st.columns(3)
