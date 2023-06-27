@@ -231,10 +231,11 @@ elif cloud == "Microsoft Azure":
         st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
     else:
         st.error("Invalid selection")
+
 st.stop()
 
-elif cloud == "Google Cloud Platform":
-  region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
+# elif cloud == "Google Cloud Platform":
+#   region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
 
 
 region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
