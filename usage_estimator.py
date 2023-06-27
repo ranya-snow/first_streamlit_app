@@ -333,13 +333,13 @@ elif wh_ingest == "XL":
     credit_ingest = xl_price 
 elif wh_ingest == "2XL":
     credit_ingest = _2xl_price
-elif wh_ingest = "3XL":
+elif wh_ingest == "3XL":
     credit_ingest = _3xl_price
-elif wh_ingest = "4XL":
+elif wh_ingest == "4XL":
     credit_ingest = _4xl_price
-elif wh_ingest = "5XL":
+elif wh_ingest == "5XL":
     credit_ingest = _5xl_price
-elif wh_ingest = "6XL":
+elif wh_ingest == "6XL":
     credit_ingest = _6xl_price
 
 st.write(credit_ingest)
