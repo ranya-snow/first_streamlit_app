@@ -213,25 +213,25 @@ credit_prices_azure = {
 }
 
 credit_prices_gcp = {
-    "us-central1": {
+    "US Central 1 (Iowa) (us-central1)": {
         "Standard": 2.0,
         "Enterprise": 3.0,
         "Business Critical": 4.0,
         "Storage": 20.0
     },
-    "us-east4": {
+    "US East 4 (N. Virginia) (us-east4)": {
         "Standard": 2.0,
         "Enterprise": 3.0,
         "Business Critical": 4.0,
         "Storage": 23.0
     },
-    "europe-west2": {
+    "Europe West 2 (London) (europe-west2)": {
         "Standard": 2.7,
         "Enterprise": 4.0,
         "Business Critical": 5.4,
         "Storage": 23.0
     },
-    "europe-west4": {
+    "Europe West 4 (Netherlands) (europe-west4)": {
         "Standard": 2.6,
         "Enterprise": 3.9,
         "Business Critical": 5.2,
