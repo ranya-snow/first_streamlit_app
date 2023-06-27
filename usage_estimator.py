@@ -11,7 +11,7 @@ azure_regions = ["West US 2 (Washington) (westus2)", "Central US (Iowa) (central
 gcp_regions = ["US Central 1 (Iowa) (us-central1)", "US East 4 (N. Virginia) (us-east4)", "Europe West 2 (London) (europe-west2)", "Europe West 4 (Netherlands) (europe-west4)"]
 
 #credit prices dictionary
-credit_prices = {
+credit_prices_aws = {
     "US West (Oregon) (us-west-2)": {
         "Standard": 2.00,
         "Enterprise": 3.00,
@@ -122,16 +122,130 @@ credit_prices = {
     }
 }
 
-test_region = st.selectbox("Select a region", list(credit_prices.keys()))
-st.write(test_region)
-plan = st.selectbox("Select a plan", list(credit_prices.get(test_region, {}).keys()))
-value = credit_prices.get(test_region, {}).get(plan)
+credit_prices_azure = {
+    "West US 2 (Washington) (westus2)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "Central US (Iowa) (centralus)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "South Central US (Texas) (southcentralus)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "East US 2 (Virginia) (eastus2)": {
+        "Standard": 2.00,
+        "Enterprise": 3.00,
+        "Business Critical": 4.00,
+        "Storage": 23.00
+    },
+    "Canada Central (Toronto) (canadacentral)": {
+        "Standard": 2.25,
+        "Enterprise": 3.50,
+        "Business Critical": 4.50,
+        "Storage": 25.00
+    },
+    "US Gov (Virginia) (usgovvirginia)": {
+        "Storage": 39.00
+    },
+    "UK South (London) (uksouth)": {
+        "Standard": 2.70,
+        "Enterprise": 4.00,
+        "Business Critical": 5.40,
+        "Storage": 24.00
+    },
+    "North Europe (Ireland) (northeurope)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 23.00
+    },
+    "West Europe (Netherlands) (westeurope)": {
+        "Standard": 2.60,
+        "Enterprise": 3.90,
+        "Business Critical": 5.20,
+        "Storage": 23.00
+    },
+    "Switzerland North (Zurich) (switzerlandnorth)": {
+        "Standard": 3.10,
+        "Enterprise": 4.65,
+        "Business Critical": 6.20,
+        "Storage": 28.80
+    },
+    "UAE North (Dubai) (uaenorth)": {
+        "Standard": 2.70,
+        "Enterprise": 4.40,
+        "Business Critical": 5.40,
+        "Storage": 25.40
+    },
+    "Central India (Pune) (centralindia)": {
+        "Standard": 2.20,
+        "Enterprise": 3.30,
+        "Business Critical": 4.40,
+        "Storage": 25.00
+    },
+    "Japan East (Tokyo) (japaneast)": {
+        "Standard": 2.85,
+        "Enterprise": 4.30,
+        "Business Critical": 5.70,
+        "Storage": 25.00
+    },
+    "Southeast Asia (Singapore) (southeastasia)": {
+        "Standard": 2.50,
+        "Enterprise": 3.70,
+        "Business Critical": 5.00,
+        "Storage": 25.00
+    },
+    "Australia East (New South Wales) (australiaeast)": {
+        "Standard": 2.75,
+        "Enterprise": 4.05,
+        "Business Critical": 5.50,
+        "Storage": 25.00
+    }
+}
+
+cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
+
+if cloud == "Amazon Web Services":
+    region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
+    plan = st.selectbox("Select a plan", list(credit_prices_aws.get(region, {}).keys()))
+    value = credit_prices_aws.get(region, {}).get(plan)
+    if value is not None:
+        st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
+    else:
+        st.error("Invalid selection")
+
+elif cloud == "Microsoft Azure":
+    region = st.selectbox("Select a region", list(credit_prices_azure.keys()))
+    plan = st.selectbox("Select a plan", list(credit_prices_azure.get(region, {}).keys()))
+    value = credit_prices_azure.get(region, {}).get(plan)
+    if value is not None:
+        st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
+    else:
+        st.error("Invalid selection")
+st.stop()
+
+elif cloud == "Google Cloud Platform":
+  region = st.selectbox("What region would you like to deploy your Snowflake instance?", azure_regions)
+
+
+region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
+plan = st.selectbox("Select a plan", list(credit_prices_aws.get(region, {}).keys()))
+value = credit_prices_aws.get(region, {}).get(plan)
 if value is not None:
-    st.success(f"The value for {test_region} - {plan} is ${value:.2f}")
+    st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
 else:
     st.error("Invalid selection")
 
-st.stop()
+
 
 edition = st.selectbox("What Snowflake Edition does your customer need?", ("Standard", "Enterprise", "Business Critical", "Virtual Private Snowflake"))
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
