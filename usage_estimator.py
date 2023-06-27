@@ -275,11 +275,11 @@ s_price = 2
 m_price = 4
 l_price = 8
 xl_price = 16
-2xl_price = 32
-3xl_price = 64
-4xl_price = 128
-5xl_price = 256
-6xl_price = 512
+_2xl_price = 32
+_3xl_price = 64
+_4xl_price = 128
+_5xl_price = 256
+_6xl_price = 512
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -332,15 +332,15 @@ elif wh_ingest == "L":
 elif wh_ingest == "XL":
     credit_ingest = xl_price 
 elif wh_ingest == "2XL":
-    credit_ingest = 2xl_price
+    credit_ingest = _2xl_price
 elif wh_ingest = "3XL":
-    credit_ingest = 3xl_price
+    credit_ingest = _3xl_price
 elif wh_ingest = "4XL":
-    credit_ingest = 4xl_price
+    credit_ingest = _4xl_price
 elif wh_ingest = "5XL":
-    credit_ingest = 5xl_price
+    credit_ingest = _5xl_price
 elif wh_ingest = "6XL":
-    credit_ingest = 6xl_price
+    credit_ingest = _6xl_price
 
 st.write(credit_ingest)
 st.stop()
