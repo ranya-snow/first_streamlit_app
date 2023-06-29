@@ -492,7 +492,7 @@ colx, coly, colz = st.columns(3)
 colx.metric(label="Your annual storage cost", value=storage_cost)
 coly.metric(label="Annual credits", value=total_credits)
 colz.metric(label="Your total compute cost", value=total_cost_compute)
-st.header(f"Your total total cost will be ${total_cost}")
+st.header(f"Your total total cost will be ${total_cost.2f}")
 
 credits = wh_ingest 
 st.header(f"Consumption estimation: {credits}")
