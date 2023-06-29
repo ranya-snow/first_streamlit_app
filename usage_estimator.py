@@ -250,9 +250,14 @@ storage_prices_gcp = {region: details["Storage"] for region, details in credit_p
 
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
 
+plans = list(credit_prices_aws.get(region, {}).keys())
+plans_without_storage = [plan for plan in plans if plan != "Storage"]
+
+plan = st.selectbox("Select a plan", plans_without_storage)
+
 if cloud == "Amazon Web Services":
     region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
-    plan = st.selectbox("Select a plan", list(credit_prices_aws.get(region, {}).keys()))
+    plan = st.selectbox("Select a plan", plans_without_storage)
     storage_price = storage_prices_aws.get(region)
     value = credit_prices_aws.get(region, {}).get(plan)
     
@@ -263,7 +268,7 @@ if cloud == "Amazon Web Services":
 
 elif cloud == "Microsoft Azure":
     region = st.selectbox("Select a region", list(credit_prices_azure.keys()))
-    plan = st.selectbox("Select a plan", list(credit_prices_azure.get(region, {}).keys()))
+    plan = st.selectbox("Select a plan", plans_without_storage)
     storage_price = storage_prices_azure.get(region)
     value = credit_prices_azure.get(region, {}).get(plan)
     if value is not None:
@@ -273,7 +278,7 @@ elif cloud == "Microsoft Azure":
 
 elif cloud == "Google Cloud Platform":
     region = st.selectbox("Select a region", list(credit_prices_gcp.keys()))
-    plan = st.selectbox("Select a plan", list(credit_prices_gcp.get(region, {}).keys()))
+    plan = st.selectbox("Select a plan", plans_without_storage)
     storage_price = storage_prices_gcp.get(region)
     value = credit_prices_gcp.get(region, {}).get(plan)
     if value is not None:
