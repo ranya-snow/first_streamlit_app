@@ -239,12 +239,23 @@ credit_prices_gcp = {
     }
 }
 
+# AWS storage prices
+storage_prices_aws = {region: details["Storage"] for region, details in credit_prices_aws.items() if "Storage" in details}
+
+# Azure storage prices
+storage_prices_azure = {region: details["Storage"] for region, details in credit_prices_azure.items() if "Storage" in details}
+
+# GCP storage prices
+storage_prices_gcp = {region: details["Storage"] for region, details in credit_prices_gcp.items() if "Storage" in details}
+
 cloud = st.selectbox("What cloud provider is your customer on?", ("Amazon Web Services", "Google Cloud Platform", "Microsoft Azure"))
 
 if cloud == "Amazon Web Services":
     region = st.selectbox("Select a region", list(credit_prices_aws.keys()))
     plan = st.selectbox("Select a plan", list(credit_prices_aws.get(region, {}).keys()))
+    storage_price = storage_prices_aws.get(region)
     value = credit_prices_aws.get(region, {}).get(plan)
+    
     if value is not None:
         st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
     else:
@@ -253,6 +264,7 @@ if cloud == "Amazon Web Services":
 elif cloud == "Microsoft Azure":
     region = st.selectbox("Select a region", list(credit_prices_azure.keys()))
     plan = st.selectbox("Select a plan", list(credit_prices_azure.get(region, {}).keys()))
+    storage_price = storage_prices_azure.get(region)
     value = credit_prices_azure.get(region, {}).get(plan)
     if value is not None:
         st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
@@ -262,6 +274,7 @@ elif cloud == "Microsoft Azure":
 elif cloud == "Google Cloud Platform":
     region = st.selectbox("Select a region", list(credit_prices_gcp.keys()))
     plan = st.selectbox("Select a plan", list(credit_prices_gcp.get(region, {}).keys()))
+    storage_price = storage_prices_gcp.get(region)
     value = credit_prices_gcp.get(region, {}).get(plan)
     if value is not None:
         st.success(f"The credit price for {region} - {plan} is ${value:.2f}")
@@ -455,6 +468,13 @@ elif wh_external == "6XL":
 
 total_credits = credit_ingest*wh_ingest_hours*wh_ingest_days*52 + credit_transform*wh_transform_hours*wh_transform_days*52 + credit_internal*wh_internal_hours*wh_internal_days*52 + credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52 + credit_dev*wh_dev_hours*wh_dev_days*52 + credit_external*wh_external_hours*wh_external_days*52
 total_cost_compute = total_credits * value
+
+st.subheader("Storage")
+storage_tb = st.number_input("How many TBs of data will you be storing?")
+if cloud == "Amazon Web Services":
+    storage = 
+storage_cost = storage_tb*
+st.metric(label="Your annual storage cost", value=storage_cost)
 
 st.divider()
 
