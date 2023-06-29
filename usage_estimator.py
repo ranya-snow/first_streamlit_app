@@ -272,7 +272,7 @@ st.divider()
 
 col1, col2, col3 = st.columns(3)
 with col1:
-  st.subheader("Workload: Ingest")
+  st.subheader("Workload: Data Ingest")
   wh_ingest = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"), key="ingest")
   wh_ingest_hours = st.number_input("How many hours a day will the WH be running?", key="ingest_h", step=0.25)
   wh_ingest_days = st.number_input("How many days a week will the WH be running?",  key="ingest_d", step=1)
