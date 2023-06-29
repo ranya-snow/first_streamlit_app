@@ -487,7 +487,7 @@ storage_cost = storage_tb*storage_price*12
 st.metric(label="Your annual storage cost", value=storage_cost)
 
 st.divider()
-
+total_cost = storage_cost+total_cost_compute
 colx, coly, colz = st.columns(3)
 colx.metric(label="Your annual storage cost", value=storage_cost)
 coly.metric(label="Annual credits", value=total_credits)
