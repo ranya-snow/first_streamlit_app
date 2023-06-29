@@ -456,12 +456,13 @@ elif wh_external == "6XL":
 total_credits = credit_ingest*wh_ingest_hours*wh_ingest_days*52 + credit_transform*wh_transform_hours*wh_transform_days*52 + credit_internal*wh_internal_hours*wh_internal_days*52 + credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52 + credit_dev*wh_dev_hours*wh_dev_days*52 + credit_external*wh_external_hours*wh_external_days*52
 total_cost_compute = total_credits * value
 
-
-
+st.metric(label="Annual credits", value=total_credits)
+st.metric(label="Your total compute cost", value=total_cost_compute)
+st.stop()
 st.write("Your total number of annual credits is:")
 st.write(total_credits)
 st.write(total_cost_compute)
-st.stop()
+
 
 credits = wh_ingest 
 st.header(f"Consumption estimation: {credits}")
