@@ -269,17 +269,6 @@ elif cloud == "Google Cloud Platform":
         st.error("Invalid selection")
 
 st.divider()
-#wh credit cost
-xs_price = 1
-s_price = 2
-m_price = 4
-l_price = 8
-xl_price = 16
-_2xl_price = 32
-_3xl_price = 64
-_4xl_price = 128
-_5xl_price = 256
-_6xl_price = 512
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -315,10 +304,22 @@ with col5:
   wh_dev_days = st.number_input("How many days a week will the WH be running?", key="dev_d", step=1)
 
 with col6:
-  st.subheader("Workload: Extermal BI")
+  st.subheader("Workload: External BI")
   wh_external = st.selectbox("Pick a warehouse size", ("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"), key="external")
   wh_external_hours = st.number_input("How many hours a day will the WH be running?", key="external_h", step=0.25)
   wh_external_days = st.number_input("How many days a week will the WH be running?", key="external_d", step=1)
+
+#wh credit cost
+xs_price = 1
+s_price = 2
+m_price = 4
+l_price = 8
+xl_price = 16
+_2xl_price = 32
+_3xl_price = 64
+_4xl_price = 128
+_5xl_price = 256
+_6xl_price = 512
 
 #ingest credits
 if wh_ingest == "XS":
@@ -342,7 +343,123 @@ elif wh_ingest == "5XL":
 elif wh_ingest == "6XL":
     credit_ingest = _6xl_price
 
-st.write(credit_ingest)
+#transform credits
+if wh_transform == "XS":
+    credit_transform = xs_price
+elif wh_transform == "S":
+    credit_transform = s_price
+elif wh_transform == "M":
+    credit_transform = m_price
+elif wh_transform == "L":
+    credit_transform = l_price
+elif wh_transform == "XL":
+    credit_transform = xl_price 
+elif wh_transform == "2XL":
+    credit_transform = _2xl_price
+elif wh_transform == "3XL":
+    credit_transform = _3xl_price
+elif wh_transform == "4XL":
+    credit_transform = _4xl_price
+elif wh_transform == "5XL":
+    credit_transform = _5xl_price
+elif wh_transform == "6XL":
+    credit_transform = _6xl_price
+
+#internal credits
+if wh_internal == "XS":
+    credit_internal = xs_price
+elif wh_internal == "S":
+    credit_internal = s_price
+elif wh_internal == "M":
+    credit_internal = m_price
+elif wh_internal == "L":
+    credit_internal = l_price
+elif wh_internal == "XL":
+    credit_internal = xl_price 
+elif wh_internal == "2XL":
+    credit_internal = _2xl_price
+elif wh_internal == "3XL":
+    credit_internal = _3xl_price
+elif wh_internal == "4XL":
+    credit_internal = _4xl_price
+elif wh_internal == "5XL":
+    credit_internal = _5xl_price
+elif wh_internal == "6XL":
+    credit_internal = _6xl_price
+
+#adhoc credits
+if wh_adhoc == "XS":
+    credit_adhoc = xs_price
+elif wh_adhoc == "S":
+    credit_adhoc = s_price
+elif wh_adhoc == "M":
+    credit_adhoc = m_price
+elif wh_adhoc == "L":
+    credit_adhoc = l_price
+elif wh_adhoc == "XL":
+    credit_adhoc = xl_price 
+elif wh_adhoc == "2XL":
+    credit_adhoc = _2xl_price
+elif wh_adhoc == "3XL":
+    credit_adhoc = _3xl_price
+elif wh_adhoc == "4XL":
+    credit_adhoc = _4xl_price
+elif wh_adhoc == "5XL":
+    credit_adhoc = _5xl_price
+elif wh_adhoc == "6XL":
+    credit_adhoc = _6xl_price
+
+#dev credits
+if wh_dev == "XS":
+    credit_dev = xs_price
+elif wh_dev == "S":
+    credit_dev = s_price
+elif wh_dev == "M":
+    credit_dev = m_price
+elif wh_dev == "L":
+    credit_dev = l_price
+elif wh_dev == "XL":
+    credit_dev = xl_price 
+elif wh_dev == "2XL":
+    credit_dev = _2xl_price
+elif wh_dev == "3XL":
+    credit_dev = _3xl_price
+elif wh_dev == "4XL":
+    credit_dev = _4xl_price
+elif wh_dev == "5XL":
+    credit_dev = _5xl_price
+elif wh_dev == "6XL":
+    credit_dev = _6xl_price
+
+#external credits
+if wh_external == "XS":
+    credit_external = xs_price
+elif wh_external == "S":
+    credit_external = s_price
+elif wh_external == "M":
+    credit_external = m_price
+elif wh_external == "L":
+    credit_external = l_price
+elif wh_external == "XL":
+    credit_external = xl_price 
+elif wh_external == "2XL":
+    credit_external = _2xl_price
+elif wh_external == "3XL":
+    credit_external = _3xl_price
+elif wh_external == "4XL":
+    credit_external = _4xl_price
+elif wh_external == "5XL":
+    credit_external = _5xl_price
+elif wh_external == "6XL":
+    credit_external = _6xl_price
+
+total_credits = credit_ingest*wh_ingest_hours*wh_ingest_days*52 + credit_transform*wh_transform_hours*wh_transform_days*52 + credit_internal*wh_internal_hours*wh_internal_days*52 + credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52 + credit_dev*wh_dev_hours*wh_dev_days*52 + credit_external*wh_external_hours*wh_external_days*52
+
+
+
+
+st.write("Your total number of annual credits is:")
+st.write(total_credits)
 st.stop()
 
 credits = wh_ingest 
