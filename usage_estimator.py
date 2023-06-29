@@ -470,10 +470,8 @@ total_credits = credit_ingest*wh_ingest_hours*wh_ingest_days*52 + credit_transfo
 total_cost_compute = total_credits * value
 
 st.subheader("Storage")
-storage_tb = st.number_input("How many TBs of data will you be storing?")
-if cloud == "Amazon Web Services":
-    storage = 
-storage_cost = storage_tb*
+storage_tb = st.number_input("How many TBs of data will you be storing each month?")
+storage_cost = storage_tb*storage_price*12
 st.metric(label="Your annual storage cost", value=storage_cost)
 
 st.divider()
