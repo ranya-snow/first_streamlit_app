@@ -481,18 +481,17 @@ total_cost_compute = total_credits * value
 st.divider()
 
 st.subheader("Storage")
-st.write(f"Your per TB storage cost is ${storage_price}")
 storage_tb = st.number_input("How many TBs of data will you be storing each month?")
+st.write(f"Your per TB storage cost is ${storage_price}")
 storage_cost = storage_tb*storage_price*12
-st.metric(label="Your annual storage cost", value=round(storage_cost,2))
 
 st.divider()
+
 total_cost = storage_cost+total_cost_compute
+
 colx, coly, colz = st.columns(3)
-colx.metric(label="Your annual storage cost", value=storage_cost)
+colx.metric(label="Your annual storage cost", value=round(storage_cost,2))
 coly.metric(label="Annual credits", value=total_credits)
 colz.metric(label="Your total compute cost", value=total_cost_compute)
-st.header(f"Your total total cost will be ${total_cost:.2f}")
 
-credits = wh_ingest 
-st.header(f"Consumption estimation: {credits}")
+st.header(f"Your total total cost will be ${total_cost:.2f}")
