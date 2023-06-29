@@ -484,7 +484,7 @@ st.subheader("Storage")
 st.write(f"Your per TB storage cost is ${storage_price}")
 storage_tb = st.number_input("How many TBs of data will you be storing each month?")
 storage_cost = storage_tb*storage_price*12
-st.metric(label=orange:["orange:[Your annual storage cost]"], value=storage_cost)
+st.metric(label=:orange["orange:[Your annual storage cost]"], value=storage_cost)
 
 st.divider()
 
