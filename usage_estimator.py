@@ -469,6 +469,8 @@ elif wh_external == "6XL":
 total_credits = credit_ingest*wh_ingest_hours*wh_ingest_days*52 + credit_transform*wh_transform_hours*wh_transform_days*52 + credit_internal*wh_internal_hours*wh_internal_days*52 + credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52 + credit_dev*wh_dev_hours*wh_dev_days*52 + credit_external*wh_external_hours*wh_external_days*52
 total_cost_compute = total_credits * value
 
+st.divider()
+
 st.subheader("Storage")
 storage_tb = st.number_input("How many TBs of data will you be storing each month?")
 storage_cost = storage_tb*storage_price*12
@@ -478,6 +480,8 @@ st.divider()
 
 st.metric(label="Annual credits", value=total_credits)
 st.metric(label="Your total compute cost", value=total_cost_compute)
+total_cost = storage_cost+total_cost_compute
+st.header(f"Your total total cost will be ${total_cost}")
 
 st.stop()
 
