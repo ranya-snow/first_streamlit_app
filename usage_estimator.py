@@ -491,7 +491,7 @@ total_cost = storage_cost+total_cost_compute
 
 colx, coly, colz = st.columns(3)
 colx.metric(label="Your annual storage cost", value=f"${round(storage_cost,2)}")
-coly.metric(label="Annual credits", value=total_credits)
+coly.metric(label="Annual credits", value=total_credits help="This is the total number of credits you will be using, based on the above provided information :)")
 colz.metric(label="Your total compute cost", value=f"${round(total_cost_compute,2)}")
 
 st.header(f"Your total estimated cost will be ${total_cost:.2f}")
