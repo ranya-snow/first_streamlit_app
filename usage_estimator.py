@@ -499,6 +499,7 @@ st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 st.divider()
 
 st.subheader("Snowpipe")
+st.caption("Streaming")
 #variables
 month_tb = st.number_input("How many TBs are you streaming in a month?")
 client_hours = st.number_input("How many hours in a day will your Kafka client be running?")
@@ -506,10 +507,9 @@ client_no = st.number_input("How many clients are you ingesting data from?")
 client_cost_month = client_hours * client_no * 0.01 * 30
 st.write(f"Your monthly client cost for Snowpipe Streaming is {client_cost_month}.")
 
-# ((30*client_hours*0.01)+(10*month_tb))/month_tb
-
-
 st.caption("File auto-ingest")
-st.caption("Streaming")
-
-#st.write(round(credits_tb,2))
+hours_ingest = st.number_input("How many hours of the day will you be ingesting files?", step=1)
+days_ingest = st.number_input("How many days a week will you be ingesting files?", step=1)
+files_ingest = st.number_input("How many files will you be loading in an hour?", step = 10)
+snowpipe_cost = hours_ingest * days_ingest * files_ingest * 52
+st.write(f"Your Snowpipe file ingest cost will be approximately {snowpipe_cost} per year")
