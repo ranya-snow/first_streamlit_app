@@ -490,7 +490,7 @@ st.divider()
 total_cost = storage_cost+total_cost_compute
 
 colx, coly, colz = st.columns(3)
-colx.metric(label="Your annual storage cost", value="$"+round(storage_cost,2))
+colx.metric(label="Your annual storage cost", value=f"${round(storage_cost,2)}")
 coly.metric(label="Annual credits", value=total_credits)
 colz.metric(label="Your total compute cost", value=total_cost_compute)
 
