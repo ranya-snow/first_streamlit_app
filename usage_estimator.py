@@ -504,7 +504,7 @@ st.caption("Streaming")
 month_tb = st.number_input("How many TBs are you streaming in a month?")
 client_hours = st.number_input("How many hours in a day will your Kafka client be running?")
 client_no = st.number_input("How many clients are you ingesting data from?")
-client_cost_month = client_hours * client_no * 0.01 * 30
+client_cost_month = round((client_hours * client_no * 0.01 * 30),2)
 st.write(f"Your monthly client cost for Snowpipe Streaming is {client_cost_month}.")
 
 st.caption("File auto-ingest")
