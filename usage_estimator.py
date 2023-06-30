@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Welcome to estimating consumption :snowflake:")
+st.title("Welcome to estimating your Snowflake consumption :snowflake:")
 
 st.header("Estimate hourly compute and WH size")
 
@@ -497,7 +497,7 @@ colz.metric(label="Your total compute cost", value=total_cost_compute)
 st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 
 st.divider()
-
+st.stop()
 st.subheader("Snowpipe")
 st.caption("Streaming")
 #variables
