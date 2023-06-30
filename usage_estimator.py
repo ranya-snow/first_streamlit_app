@@ -511,5 +511,5 @@ st.caption("File auto-ingest")
 hours_ingest = st.number_input("How many hours of the day will you be ingesting files?", step=1)
 days_ingest = st.number_input("How many days a week will you be ingesting files?", step=1)
 files_ingest = st.number_input("How many files will you be loading in an hour?", step = 10)
-snowpipe_cost = hours_ingest * days_ingest * files_ingest * 52
+snowpipe_cost = hours_ingest * days_ingest * 52 * (1/6000) * files_ingest
 st.write(f"Your Snowpipe file ingest cost will be approximately {snowpipe_cost} per year")
