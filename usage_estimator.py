@@ -494,4 +494,13 @@ colx.metric(label="Your annual storage cost", value=round(storage_cost,2))
 coly.metric(label="Annual credits", value=total_credits)
 colz.metric(label="Your total compute cost", value=total_cost_compute)
 
-st.header(f"Your total total cost will be ${total_cost:.2f}")
+st.header(f"Your total estimated cost will be ${total_cost:.2f}")
+
+st.divider()
+
+st.subheader("Snowpipe Streaming")
+#variables
+month_tb = st.number_input("How many TBs are you streaming in a month?")
+client_hours = st.number_input("How many hours in a day will your Kafka client be running?")
+credits_tb = ((30*client_hours*0.01)+(10*month_tb))/month_tb
+st.write(credits_tb)
