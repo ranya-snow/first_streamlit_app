@@ -490,12 +490,12 @@ st.divider()
 total_cost = storage_cost+total_cost_compute
 
 colx, coly, colz = st.columns(3)
-colx.metric(label="Your annual storage cost", value=f"${round(storage_cost,2)}")
+colx.metric(label="Your annual storage cost", value=f"${round(storage_cost,2)}", help="Storing your data on Snowflake will cost you this amount :)")
 coly.metric(label="Annual credits", value=total_credits, help="This is the total number of credits you will be using, based on the above provided information :)")
-colz.metric(label="Your total compute cost", value=f"${round(total_cost_compute,2)}")
+colz.metric(label="Your total compute cost", value=f"${round(total_cost_compute,2)}", help="Your total compute on Snowflake will cost you this amount :)")
 
 st.header(f"Your total estimated cost will be ${total_cost:.2f}")
-
+# add how often customers want to load/transform and how much data 
 st.divider()
 st.stop()
 st.subheader("Snowpipe")
