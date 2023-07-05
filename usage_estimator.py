@@ -475,7 +475,7 @@ elif wh_external == "5XL":
 elif wh_external == "6XL":
     credit_external = _6xl_price
 
-total_credits = (credit_ingest*wh_ingest_hours*wh_ingest_days*52( + (credit_transform*wh_transform_hours*wh_transform_days*52) + (credit_internal*wh_internal_hours*wh_internal_days*52) + (credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52) + (credit_dev*wh_dev_hours*wh_dev_days*52) + (credit_external*wh_external_hours*wh_external_days*52)
+total_credits = (credit_ingest*wh_ingest_hours*wh_ingest_days*52) + (credit_transform*wh_transform_hours*wh_transform_days*52) + (credit_internal*wh_internal_hours*wh_internal_days*52) + (credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52) + (credit_dev*wh_dev_hours*wh_dev_days*52) + (credit_external*wh_external_hours*wh_external_days*52)
 
 total_cost_compute = total_credits * value
 
