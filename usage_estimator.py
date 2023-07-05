@@ -266,7 +266,7 @@ if cloud == "Amazon Web Services":
 
 elif cloud == "Microsoft Azure":
     region = st.selectbox("Select a region", list(credit_prices_azure.keys()))
-    plans = list(credit_prices_aws.get(region, {}).keys())
+    plans = list(credit_prices_azure.get(region, {}).keys())
     plans_without_storage = [plan for plan in plans if plan != "Storage"]
     plan = st.selectbox("Select a plan", plans_without_storage)
 
