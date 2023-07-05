@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.title("Welcome to estimating your Snowflake consumption :snowflake:")
 
@@ -498,6 +499,14 @@ colz.metric(label="Your total compute cost", value=f"${round(total_cost_compute,
 st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 # add how often customers want to load/transform and how much data 
 st.divider()
+
+ingest_df = pd.DataFrame([[wh_ingest,wh_ingest_hours_wh_ingest_days]], columns=['size','hours','days'])
+st.write(ingest_df)
+
+
+
+
+
 st.stop()
 st.subheader("Snowpipe")
 st.caption("Streaming")
