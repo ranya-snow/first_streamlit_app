@@ -500,7 +500,7 @@ st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 # add how often customers want to load/transform and how much data 
 st.divider()
 
-ingest_df = pd.DataFrame([[wh_ingest,wh_ingest_hours_wh_ingest_days]], columns=['size','hours','days'])
+ingest_df = pd.DataFrame([[wh_ingest,wh_ingest_hours,wh_ingest_days]], columns=['size','hours','days'])
 st.write(ingest_df)
 
 
