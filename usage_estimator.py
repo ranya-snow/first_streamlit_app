@@ -537,20 +537,9 @@ data = {
     '12': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%']
 }
 
-# Create a dataframe for each row
-dfs = []
-for row in data.values():
-    df = pd.DataFrame([row], columns=data.keys())
-    dfs.append(df)
+st.dataframe(data)
+st.stop()
 
-# Access individual dataframes
-slowest_ramp_df = dfs[0]
-slow_ramp_df = dfs[1]
-linear_ramp_df = dfs[2]
-fast_ramp_df = dfs[3]
-fastest_ramp_df = dfs[4]
-
-# Access a specific percentage value from a dataframe
 slowest_ramp_percentage = slowest_ramp_df.loc[0, '2']
 
 # Convert the percentage value to a numeric variable
@@ -565,7 +554,6 @@ st.write(new_variable)
 
 
 
-st.stop()
 st.subheader("Snowpipe")
 st.caption("Streaming")
 #variables
