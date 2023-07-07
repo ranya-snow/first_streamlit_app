@@ -476,7 +476,14 @@ elif wh_external == "5XL":
 elif wh_external == "6XL":
     credit_external = _6xl_price
 
-total_credits = (credit_ingest*wh_ingest_hours*wh_ingest_days*52) + (credit_transform*wh_transform_hours*wh_transform_days*52) + (credit_internal*wh_internal_hours*wh_internal_days*52) + (credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52) + (credit_dev*wh_dev_hours*wh_dev_days*52) + (credit_external*wh_external_hours*wh_external_days*52)
+total_credit_ingest = credit_ingest*wh_ingest_hours*wh_ingest_days*52
+total_credit_transform = credit_transform*wh_transform_hours*wh_transform_days*52
+total_credit_internal = credit_internal*wh_internal_hours*wh_internal_days*52
+total_credit_adhoc = credit_adhoc*wh_adhoc_hours*wh_adhoc_days*52
+total_credit_dev = credit_dev*wh_dev_hours*wh_dev_days*52
+total_credit_external = credit_external*wh_external_hours*wh_external_days*52
+
+total_credits = total_credit_ingest + total_credit_transform + total_credit_internal + total_credit_adhoc + total_credit_dev + total_credit_external
 
 total_cost_compute = total_credits * value
 
@@ -500,15 +507,17 @@ st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 # add how often customers want to load/transform and how much data 
 st.divider()
 
-ingest_df = pd.DataFrame([['ingest',wh_ingest,wh_ingest_hours,wh_ingest_days]], columns=['workload','size','hours','days'])
-transform_df = pd.DataFrame([['transform', wh_transform, wh_transform_hours, wh_transform_days]], columns=['workload','size','hours','days'])
-internal_df = pd.DataFrame([['internal', wh_internal, wh_internal_hours, wh_internal_days]], columns=['workload','size','hours','days'])
-adhoc_df = pd.DataFrame([['adhoc', wh_adhoc, wh_adhoc_hours, wh_adhoc_days]], columns=['workload','size','hours','days'])
-dev_df = pd.DataFrame([['dev', wh_dev, wh_dev_hours, wh_dev_days]], columns=['workload','size','hours','days'])
-external_df = pd.DataFrame([['external', wh_external, wh_external_hours, wh_external_days]], columns=['workload','size','hours','days'])
+ingest_df = pd.DataFrame([['ingest',wh_ingest,wh_ingest_hours,wh_ingest_days,total_credit_ingest]], columns=['workload','size','hours','days','credits'])
+transform_df = pd.DataFrame([['transform', wh_transform, wh_transform_hours, wh_transform_days,total_credit_transform]], columns=['workload','size','hours','days','credits'])
+internal_df = pd.DataFrame([['internal', wh_internal, wh_internal_hours, wh_internal_days,total_credit_internal]], columns=['workload','size','hours','days','credits'])
+adhoc_df = pd.DataFrame([['adhoc', wh_adhoc, wh_adhoc_hours, wh_adhoc_days,total_credit_adhoc]], columns=['workload','size','hours','days','credits'])
+dev_df = pd.DataFrame([['dev', wh_dev, wh_dev_hours, wh_dev_days,total_credit_dev]], columns=['workload','size','hours','days','credits'])
+external_df = pd.DataFrame([['external', wh_external, wh_external_hours, wh_external_days,total_credit_external]], columns=['workload','size','hours','days','credits'])
+
 
 df = pd.concat([ingest_df, transform_df, internal_df, adhoc_df, dev_df, external_df], ignore_index=True)
-st.write(df)
+st.subheader("Summary:")
+st.dataframe(df)
 
 
 
