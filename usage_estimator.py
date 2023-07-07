@@ -507,12 +507,12 @@ st.header(f"Your total estimated cost will be ${total_cost:.2f}")
 # add how often customers want to load/transform and how much data 
 st.divider()
 
-ingest_df = pd.DataFrame([['ingest',wh_ingest,wh_ingest_hours,wh_ingest_days,total_credit_ingest]], columns=['workload','size','hours','days','credits'])
-transform_df = pd.DataFrame([['transform', wh_transform, wh_transform_hours, wh_transform_days,total_credit_transform]], columns=['workload','size','hours','days','credits'])
-internal_df = pd.DataFrame([['internal', wh_internal, wh_internal_hours, wh_internal_days,total_credit_internal]], columns=['workload','size','hours','days','credits'])
-adhoc_df = pd.DataFrame([['adhoc', wh_adhoc, wh_adhoc_hours, wh_adhoc_days,total_credit_adhoc]], columns=['workload','size','hours','days','credits'])
-dev_df = pd.DataFrame([['dev', wh_dev, wh_dev_hours, wh_dev_days,total_credit_dev]], columns=['workload','size','hours','days','credits'])
-external_df = pd.DataFrame([['external', wh_external, wh_external_hours, wh_external_days,total_credit_external]], columns=['workload','size','hours','days','credits'])
+ingest_df = pd.DataFrame([['Data Ingest',wh_ingest,wh_ingest_hours,wh_ingest_days,total_credit_ingest]], columns=['workload','size','hours','days','credits'])
+transform_df = pd.DataFrame([['Transformations', wh_transform, wh_transform_hours, wh_transform_days,total_credit_transform]], columns=['workload','size','hours','days','credits'])
+internal_df = pd.DataFrame([['Internal BI', wh_internal, wh_internal_hours, wh_internal_days,total_credit_internal]], columns=['workload','size','hours','days','credits'])
+adhoc_df = pd.DataFrame([['Ad-hoc Analysis', wh_adhoc, wh_adhoc_hours, wh_adhoc_days,total_credit_adhoc]], columns=['workload','size','hours','days','credits'])
+dev_df = pd.DataFrame([['Development', wh_dev, wh_dev_hours, wh_dev_days,total_credit_dev]], columns=['workload','size','hours','days','credits'])
+external_df = pd.DataFrame([['Data App', wh_external, wh_external_hours, wh_external_days,total_credit_external]], columns=['workload','size','hours','days','credits'])
 
 
 df = pd.concat([ingest_df, transform_df, internal_df, adhoc_df, dev_df, external_df], ignore_index=True)
