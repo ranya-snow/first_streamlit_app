@@ -519,6 +519,48 @@ df = pd.concat([ingest_df, transform_df, internal_df, adhoc_df, dev_df, external
 st.subheader("Summary:")
 st.dataframe(df, width=700)
 
+st.subheader("Ramp curve testing")
+# Ramp curves
+data = {
+    'RAMP UP CURVE': ['Slowest Ramp', 'Slow Ramp', 'Linear Ramp', 'Fast Ramp', 'Fastest Ramp'],
+    '1': ['0.00%', '0.00%', '0.00%', '0.00%', '0.00%'],
+    '2': ['1.00%', '3.16%', '10.00%', '17.78%', '31.62%'],
+    '3': ['4.00%', '8.94%', '20.00%', '29.91%', '44.72%'],
+    '4': ['9.00%', '16.43%', '30.00%', '40.54%', '54.77%'],
+    '5': ['16.00%', '25.30%', '40.00%', '50.30%', '63.25%'],
+    '6': ['25.00%', '35.36%', '50.00%', '59.46%', '70.71%'],
+    '7': ['36.00%', '46.48%', '60.00%', '68.17%', '77.46%'],
+    '8': ['49.00%', '58.57%', '70.00%', '76.53%', '83.67%'],
+    '9': ['64.00%', '71.55%', '80.00%', '84.59%', '89.44%'],
+    '10': ['81.00%', '85.38%', '90.00%', '92.40%', '94.87%'],
+    '11': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%'],
+    '12': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%']
+}
+
+# Create a dataframe for each row
+dfs = []
+for row in data.values():
+    df = pd.DataFrame([row], columns=data.keys())
+    dfs.append(df)
+
+# Access individual dataframes
+slowest_ramp_df = dfs[0]
+slow_ramp_df = dfs[1]
+linear_ramp_df = dfs[2]
+fast_ramp_df = dfs[3]
+fastest_ramp_df = dfs[4]
+
+# Access a specific percentage value from a dataframe
+slowest_ramp_percentage = slowest_ramp_df.loc[0, '2']
+
+# Convert the percentage value to a numeric variable
+slowest_ramp_variable = float(slowest_ramp_percentage.strip('%')) / 100
+
+# Compute a new variable based on the referenced percentage value
+new_variable = slowest_ramp_variable * 1000
+
+# Print the computed variable
+st.write(new_variable)
 
 
 
