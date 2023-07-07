@@ -517,7 +517,7 @@ external_df = pd.DataFrame([['external', wh_external, wh_external_hours, wh_exte
 
 df = pd.concat([ingest_df, transform_df, internal_df, adhoc_df, dev_df, external_df], ignore_index=True)
 st.subheader("Summary:")
-st.dataframe(df)
+st.dataframe(df, width=700)
 
 
 
