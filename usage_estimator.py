@@ -543,8 +543,13 @@ selected_position, selected_item = st.selectbox('Select a position', positions_a
 # st.write('Selected position:', selected_position)
 # st.write('Selected item:', selected_item)
 
-month_1 = total_cost_compute/12*data['1'][selected_position]
-month_2 = total_cost_compute/12*data['2'][selected_position]
+month_1 = (total_cost_compute/12)*(data['1'][selected_position])
+
+st.write(month_2)
+st.dataframe(data)
+st.stop()
+
+month_2 = (total_cost_compute/12)*(data['2'][selected_position])
 # month_3
 # month_4
 # month_5
@@ -556,7 +561,7 @@ month_2 = total_cost_compute/12*data['2'][selected_position]
 # month_11
 # month_12
 
-st.write(month_1)
+st.write(month_2)
 st.dataframe(data)
 st.stop()
 
