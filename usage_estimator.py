@@ -545,23 +545,22 @@ selected_position, selected_item = st.selectbox('Select a position', positions_a
 
 month_1 = (total_cost_compute/12)*(data['1'][selected_position])
 
-st.write(month_1)
-st.dataframe(data)
-st.stop()
 
 month_2 = (total_cost_compute/12)*(data['2'][selected_position])
-# month_3
-# month_4
-# month_5
-# month_6
-# month_7
-# month_8
-# month_9
-# month_10
-# month_11
-# month_12
+month_3 = (total_cost_compute/12)*(data['3'][selected_position])
+month_4 = (total_cost_compute/12)*(data['4'][selected_position])
+month_5 = (total_cost_compute/12)*(data['5'][selected_position])
+month_6 = (total_cost_compute/12)*(data['6'][selected_position])
+month_7 = (total_cost_compute/12)*(data['7'][selected_position])
+month_8 = (total_cost_compute/12)*(data['8'][selected_position])
+month_9 = (total_cost_compute/12)*(data['9'][selected_position])
+month_10 = (total_cost_compute/12)*(data['10'][selected_position])
+month_11 = (total_cost_compute/12)*(data['11'][selected_position])
+month_12 = (total_cost_compute/12)*(data['12'][selected_position])
 
-st.write(month_2)
+ramp_df = month_1,month_2,month_3,month_4,month_5
+st.write(ramp_df)
+st.write(month_1)
 st.dataframe(data)
 st.stop()
 
