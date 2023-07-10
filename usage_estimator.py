@@ -536,7 +536,9 @@ data = {
     '11': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%'],
     '12': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%']
 }
-ramp_curve = st.selectbox("Select expected ramp-up curve", data['RAMP UP CURVE'])
+positions = list(range(len(data['RAMP UP CURVE'])))
+ramp_curve = st.selectbox("Select expected ramp-up curve", positions)
+
 month_1 = total_cost_compute/12*data['1'][ramp_curve]
 month_2 = total_cost_compute/12*data['2'][ramp_curve]
 # month_3
