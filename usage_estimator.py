@@ -562,8 +562,8 @@ monthly_credit_ramp = {
 }
 
 ramp_df = pd.DataFrame(monthly_credit_ramp)
-monthly_credit_ramp = monthly_credit_ramp.set_index('Month')
-st.bar_chart(monthly_credit_ramp.set_index('Month'))
+ramp_df = ramp_df.set_index('Month')
+st.bar_chart(ramp_df)
 
 # st.write(month_1)
 # st.dataframe(data)
