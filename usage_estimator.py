@@ -521,7 +521,7 @@ st.dataframe(df, width=700)
 
 st.subheader("Ramp curve testing")
 # Ramp curves
-{
+data = {
     'RAMP UP CURVE': ['Slowest Ramp', 'Slow Ramp', 'Linear Ramp', 'Fast Ramp', 'Fastest Ramp'],
     '1': [0.0, 0.0, 0.0, 0.0, 0.0],
     '2': [0.01, 0.0316, 0.1, 0.1778, 0.3162],
