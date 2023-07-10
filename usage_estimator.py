@@ -542,7 +542,7 @@ positions_and_items = [(i, item) for i, item in enumerate(data['RAMP UP CURVE'])
 selected_position, selected_item = st.selectbox('Select a position', positions_and_items, format_func=lambda pair: pair[1])
 # st.write('Selected position:', selected_position)
 # st.write('Selected item:', selected_item)
-st.stop()
+
 month_1 = total_cost_compute/12*data['1'][selected_position]
 month_2 = total_cost_compute/12*data['2'][selected_position]
 # month_3
@@ -557,8 +557,8 @@ month_2 = total_cost_compute/12*data['2'][selected_position]
 # month_12
 
 st.write(month_1)
-
 st.dataframe(data)
+st.stop()
 
 slowest_ramp_percentage = slowest_ramp_df.loc[0, '2']
 
