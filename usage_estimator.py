@@ -544,8 +544,6 @@ selected_position, selected_item = st.selectbox('Select a position', positions_a
 # st.write('Selected item:', selected_item)
 
 month_1 = (total_cost_compute/12)*(data['1'][selected_position])
-
-
 month_2 = (total_cost_compute/12)*(data['2'][selected_position])
 month_3 = (total_cost_compute/12)*(data['3'][selected_position])
 month_4 = (total_cost_compute/12)*(data['4'][selected_position])
@@ -564,9 +562,8 @@ monthly_credit_ramp = {
 }
 
 ramp_df = pd.DataFrame(monthly_credit_ramp)
-st.write(ramp_df)
-
-st.bar_chart(df.set_index('Month'))
+monthly_credit_ramp = monthly_credit_ramp.set_index('Month')
+st.bar_chart(monthly_credit_ramp.set_index('Month'))
 
 # st.write(month_1)
 # st.dataframe(data)
