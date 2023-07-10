@@ -536,17 +536,15 @@ data = {
     '11': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%'],
     '12': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%']
 }
-positions = list(range(len(data['RAMP UP CURVE'])))
-ramp_curve = st.selectbox("Select expected ramp-up curve", positions)
 
 positions_and_items = [(i, item) for i, item in enumerate(data['RAMP UP CURVE'])]  # Generate a list of (position, item) pairs
 
 selected_position, selected_item = st.selectbox('Select a position', positions_and_items, format_func=lambda pair: pair[1])
-st.write('Selected position:', selected_position)
-st.write('Selected item:', selected_item)
+# st.write('Selected position:', selected_position)
+# st.write('Selected item:', selected_item)
 st.stop()
-month_1 = total_cost_compute/12*data['1'][ramp_curve]
-month_2 = total_cost_compute/12*data['2'][ramp_curve]
+month_1 = total_cost_compute/12*data['1'][selected_position]
+month_2 = total_cost_compute/12*data['2'][selected_position]
 # month_3
 # month_4
 # month_5
