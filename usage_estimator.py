@@ -536,6 +536,21 @@ data = {
     '11': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%'],
     '12': ['100.00%', '100.00%', '100.00%', '100.00%', '100.00%']
 }
+ramp_curve = st.selectbox("Select expected ramp-up curve", data['RAMP UP CURVE'])
+month_1 = total_cost_compute/12*data['1'][ramp_curve]
+month_2 = total_cost_compute/12*data['2'][ramp_curve]
+# month_3
+# month_4
+# month_5
+# month_6
+# month_7
+# month_8
+# month_9
+# month_10
+# month_11
+# month_12
+
+st.write(month_1)
 
 st.dataframe(data)
 st.stop()
