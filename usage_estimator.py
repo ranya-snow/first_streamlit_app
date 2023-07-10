@@ -558,10 +558,18 @@ month_10 = (total_cost_compute/12)*(data['10'][selected_position])
 month_11 = (total_cost_compute/12)*(data['11'][selected_position])
 month_12 = (total_cost_compute/12)*(data['12'][selected_position])
 
-ramp_df = month_1,month_2,month_3,month_4,month_5
+monthly_credit_ramp = {
+    'Month': ['Month_1', 'Month_2', 'Month_3', 'Month_4', 'Month_5', 'Month_6', 'Month_7', 'Month_8', 'Month_9', 'Month_10', 'Month_11', 'Month_12'],
+    'Value': [month_1, month_2, month_3, month_4, month_5, month_6, month_7, month_8, month_9, month_10, month_11, month_12]
+}
+
+ramp_df = pd.DataFrame(monthly_credit_ramp)
 st.write(ramp_df)
-st.write(month_1)
-st.dataframe(data)
+
+st.bar_chart(df.set_index('Month'))
+
+# st.write(month_1)
+# st.dataframe(data)
 st.stop()
 
 slowest_ramp_percentage = slowest_ramp_df.loc[0, '2']
