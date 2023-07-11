@@ -557,7 +557,7 @@ month_11 = (total_cost_compute/12)*(data['11'][selected_position])
 month_12 = (total_cost_compute/12)*(data['12'][selected_position])
 
 monthly_credit_ramp = {
-    'Month': ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9', 'Month 10', 'Month 11', 'Month 12'],
+    'Month': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     'Value': [month_1, month_2, month_3, month_4, month_5, month_6, month_7, month_8, month_9, month_10, month_11, month_12]
 }
 
@@ -565,23 +565,7 @@ ramp_df = pd.DataFrame(monthly_credit_ramp)
 ramp_df = ramp_df.set_index('Month')
 st.bar_chart(ramp_df)
 
-# st.write(month_1)
-# st.dataframe(data)
 st.stop()
-
-slowest_ramp_percentage = slowest_ramp_df.loc[0, '2']
-
-# Convert the percentage value to a numeric variable
-slowest_ramp_variable = float(slowest_ramp_percentage.strip('%')) / 100
-
-# Compute a new variable based on the referenced percentage value
-new_variable = slowest_ramp_variable * 1000
-
-# Print the computed variable
-st.write(new_variable)
-
-
-
 
 st.subheader("Snowpipe")
 st.caption("Streaming")
