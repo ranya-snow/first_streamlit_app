@@ -564,7 +564,7 @@ monthly_credit_ramp = {
 ramp_df = pd.DataFrame(monthly_credit_ramp)
 ramp_df = ramp_df.set_index('Month')
 st.bar_chart(ramp_df)
-
+st.dataframe(data)
 st.stop()
 
 st.subheader("Snowpipe")
